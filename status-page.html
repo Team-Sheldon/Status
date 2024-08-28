@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status Page with Multiple API Tokens</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .status {
+            margin-bottom: 20px;
+        }
+        .status h2 {
+            font-size: 1.5em;
+        }
+        .status pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const apiToken1 = 'kRsqmnkQXtyLU2WfezKGqiGJ'; // Replace with your actual API token for the first API
+            const apiToken2 = 'AosbBiR5JCXqK8aTtrRJ9V8h'; // Replace with your actual API token for the second API
+
+            // Function to fetch and display data from an API
+            function fetchData(apiUrl, token, elementId) {
+                fetch(apiUrl, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById(elementId).textContent = JSON.stringify(data, null, 2);
+                })
+                .catch(error => {
+                    document.getElementById(elementId).textContent = 'Error: ' + error.message;
+                });
+            }
+
+            // Fetch data from both APIs
+            fetchData('https://api.example.com/status1', apiToken1, 'status1-data');
+            fetchData('https://api.example.com/status2', apiToken2, 'status2-data');
+        });
+    </script>
+</head>
+<body>
+    <h1>Status Page</h1>
+    <div class="status">
+        <h2>API 1 Status</h2>
+        <pre id="status1-data">Loading data...</pre>
+    </div>
+    <div class="status">
+        <h2>API 2 Status</h2>
+        <pre id="status2-data">Loading data...</pre>
+    </div>
+</body>
+</html>
