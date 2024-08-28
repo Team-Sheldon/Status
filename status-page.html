@@ -3,23 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Status Page with Multiple API Tokens</title>
+    <title>Status Page for TEAM Sheldon</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         .status {
             margin-bottom: 20px;
         }
         .status h2 {
             font-size: 1.5em;
+            margin-bottom: 10px;
         }
         .status pre {
-            background: #f4f4f4;
+            background: #e0e0e0;
             padding: 10px;
-            border: 1px solid #ddd;
+            border: 1px solid #ccc;
             border-radius: 5px;
             overflow-x: auto;
+            white-space: pre-wrap; /* Ensures that long lines wrap */
         }
     </style>
     <script>
@@ -52,14 +65,16 @@
     </script>
 </head>
 <body>
-    <h1>Status Page</h1>
-    <div class="status">
-        <h2>API 1 Status</h2>
-        <pre id="status1-data">Loading data...</pre>
-    </div>
-    <div class="status">
-        <h2>API 2 Status</h2>
-        <pre id="status2-data">Loading data...</pre>
+    <div class="container">
+        <h1>Status Page for TEAM Sheldon</h1>
+        <div class="status">
+            <h2>API 1 Status</h2>
+            <pre id="status1-data">Loading data...</pre>
+        </div>
+        <div class="status">
+            <h2>API 2 Status</h2>
+            <pre id="status2-data">Loading data...</pre>
+        </div>
     </div>
 </body>
 </html>
